@@ -3,4 +3,9 @@
 ---
 fixtures:
   forge_modules:
-#     stdlib: "puppetlabs/stdlib"
+    logrotate:
+      repo: 'puppet/logrotate'
+    stdlib:
+      repo: 'puppetlabs/stdlib'
+  symlinks:
+    qualys_agent: "#{source_dir}"
