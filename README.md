@@ -2,6 +2,7 @@
 
 A Puppet module to manage the SentinelOne agent.
 
+![checks](https://github.com/broadinstitute/puppet-sentinelone_agent/workflows/checks/badge.svg?branch=main)
 [![Puppet Forge](https://img.shields.io/puppetforge/dt/broadinstitute/sentinelone_agent.svg)](https://forge.puppetlabs.com/broadinstitute/sentinelone_agent)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/broadinstitute/sentinelone_agent.svg)](https://forge.puppetlabs.com/broadinstitute/sentinelone_agent)
 [![Puppet Forge](https://img.shields.io/puppetforge/f/broadinstitute/sentinelone_agent.svg)](https://forge.puppetlabs.com/broadinstitute/sentinelone_agent)
