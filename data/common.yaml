@@ -1,1 +1,11 @@
---- {}
+---
+sentinelone_agent::logrotate_ensure: 'present'
+sentinelone_agent::manage_logrotate: true
+sentinelone_agent::manage_package: true
+sentinelone_agent::manage_service: true
+sentinelone_agent::package_ensure: 'installed'
+sentinelone_agent::package_name: 'SentinelAgent'
+sentinelone_agent::service_enable: true
+sentinelone_agent::service_ensure: 'running'
+sentinelone_agent::service_name: 'sentineld'
+sentinelone_agent::token: ~
