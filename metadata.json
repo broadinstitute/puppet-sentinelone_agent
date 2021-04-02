@@ -1,6 +1,6 @@
 {
   "name": "broadinstitute-sentinelone_agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "broadinstitute",
   "summary": "Puppet module to manage the SentinelOne agent",
   "license": "BSD-3-Clause",
