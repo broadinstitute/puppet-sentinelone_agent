@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [0.1.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/0.1.0) (2021-04-02)
 
+[Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.0...0.1.0)
+
+### Fixed
+
+- Fix service name bug [\#4](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/4) ([coreone](https://github.com/coreone))
+
+## [0.1.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/0.1.0) (2021-04-02)
+
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/7e0f427cd6f07e71541a6771b26a36b53ca37598...0.1.0)
 
 ### Added
