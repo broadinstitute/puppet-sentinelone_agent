@@ -93,7 +93,7 @@ Ensure the state of the service (default: 'running').
 
 Data type: `String`
 
-The name of the SentinelOne agent service (default: 'sentineld').
+The name of the SentinelOne agent service (default: 'sentinelone').
 
 ##### <a name="token"></a>`token`
 

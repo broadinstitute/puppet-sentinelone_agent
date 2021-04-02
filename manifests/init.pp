@@ -31,7 +31,7 @@
 #   Ensure the state of the service (default: 'running').
 #
 # @param service_name
-#   The name of the SentinelOne agent service (default: 'sentineld').
+#   The name of the SentinelOne agent service (default: 'sentinelone').
 #
 # @param token
 #   The token to be used by the SentinelOne agent (no default, but required)

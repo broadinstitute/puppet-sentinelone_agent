@@ -28,6 +28,8 @@ This module will install the SentinelOne Agent from a repository and keep the re
 
 Due to the nature of SentinelOne's distribution methods, making the actual package available in a repository is outside the scope of this module.  In most cases, you can create your own custom Yum, Apt, etc. repository and serve out the `SentinelAgent` package you can download from the SentinelOne interface.
 
+This module was tested on versions of `SentinelAgent` >= 4, and therefore cannot be guaranteed to work on older versions of the agent installation.
+
 #### Installation
 
 The easiest way to install this module is through Puppet Forge:
