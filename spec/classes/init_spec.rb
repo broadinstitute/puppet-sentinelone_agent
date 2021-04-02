@@ -38,7 +38,7 @@ describe 'sentinelone_agent' do
             is_expected.to contain_service('sentinelone_agent_service').with(
               enable: true,
               ensure: 'running',
-              name: 'sentineld',
+              name: 'sentinelone',
               require: 'Package[sentinelone_agent_package]',
             )
           end
@@ -110,7 +110,7 @@ describe 'sentinelone_agent' do
             is_expected.to contain_service('sentinelone_agent_service').with(
               enable: true,
               ensure: 'running',
-              name: 'sentineld',
+              name: 'sentinelone',
               require: nil,
             )
           end
@@ -179,7 +179,7 @@ describe 'sentinelone_agent' do
             is_expected.to contain_service('sentinelone_agent_service').with(
               enable: false,
               ensure: 'running',
-              name: 'sentineld',
+              name: 'sentinelone',
               require: 'Package[sentinelone_agent_package]',
             )
           end
@@ -194,7 +194,7 @@ describe 'sentinelone_agent' do
             is_expected.to contain_service('sentinelone_agent_service').with(
               enable: true,
               ensure: 'stopped',
-              name: 'sentineld',
+              name: 'sentinelone',
               require: 'Package[sentinelone_agent_package]',
             )
           end

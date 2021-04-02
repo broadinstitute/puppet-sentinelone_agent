@@ -7,5 +7,5 @@ sentinelone_agent::package_ensure: 'installed'
 sentinelone_agent::package_name: 'SentinelAgent'
 sentinelone_agent::service_enable: true
 sentinelone_agent::service_ensure: 'running'
-sentinelone_agent::service_name: 'sentineld'
+sentinelone_agent::service_name: 'sentinelone'
 sentinelone_agent::token: ~
