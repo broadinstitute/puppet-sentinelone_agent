@@ -31,6 +31,18 @@ class sentinelone_agent::service {
     user    => 'root',
   }
 
+  if $sentinelone_agent::proxy_url {
+    # Use Augeas to get around password prompts on proxy URL change
+    augeas { 'sentinelone_agent_proxy':
+      changes => "set dict/entry[.= 'mgmt_proxy_url']/string '${sentinelone_agent::proxy_url}'",
+      context => '/files/opt/sentinelone/configuration/basic.conf',
+      incl    => '/opt/sentinelone/configuration/basic.conf',
+      lens    => 'Json.lns',
+      onlyif  => "get dict/entry[.= 'mgmt_proxy_url']/string != '${sentinelone_agent::proxy_url}'",
+      notify  => Service['sentinelone_agent_service'],
+    }
+  }
+
   if $sentinelone_agent::manage_logrotate {
     logrotate::rule { 'sentinelone_agent':
       ensure    => $sentinelone_agent::logrotate_ensure,

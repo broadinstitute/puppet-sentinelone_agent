@@ -24,6 +24,9 @@
 # @param package_name
 #   The name of the SentinelOne agent package (default: 'SentinelAgent').
 #
+# @param proxy_url
+#   The URL to use as an HTTP proxy
+#
 # @param service_enable
 #   Decide whether to enable the service (default: true).
 #
@@ -43,6 +46,7 @@ class sentinelone_agent (
   Boolean $manage_service,
   Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]] $package_ensure,
   String $package_name,
+  Optional[String] $proxy_url,
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
   String $service_name,

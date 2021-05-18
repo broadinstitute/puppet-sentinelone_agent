@@ -43,6 +43,9 @@ describe 'sentinelone_agent' do
             )
           end
           it do
+            is_expected.not_to contain_exec('sentinelone_agent_proxy')
+          end
+          it do
             is_expected.to contain_exec('sentinelone_agent_token').with(
               command: '/usr/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cDovL2V4YW1wbGUub3JnIiwgInNpdGVfa2V5IjogImFiYzEyMyJ9',
               notify: 'Service[sentinelone_agent_service]',
@@ -245,6 +248,27 @@ describe 'sentinelone_agent' do
 
           it do
             is_expected.not_to compile
+          end
+        end
+
+        context 'with proxy_url set to http://example.com:9999' do
+          let(:params) do
+            { proxy_url: 'http://example.com:9999' }
+          end
+
+          it do
+            is_expected.to compile.with_all_deps
+          end
+
+          it do
+            is_expected.to contain_augeas('sentinelone_agent_proxy').with(
+              changes: "set dict/entry[.= 'mgmt_proxy_url']/string 'http://example.com:9999'",
+              context: '/files/opt/sentinelone/configuration/basic.conf',
+              incl: '/opt/sentinelone/configuration/basic.conf',
+              lens: 'Json.lns',
+              onlyif: "get dict/entry[.= 'mgmt_proxy_url']/string != 'http://example.com:9999'",
+              notify: 'Service[sentinelone_agent_service]',
+            )
           end
         end
 

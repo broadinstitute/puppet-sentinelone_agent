@@ -1,4 +1,4 @@
 pr-wo-labels=false
 project=puppet-sentinelone_agent
-unreleased=false
+unreleased=true
 user=broadinstitute
