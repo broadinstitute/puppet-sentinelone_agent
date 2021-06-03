@@ -18,14 +18,14 @@
 # @param manage_service
 #   Decide whether to manage the service (default: true).
 #
+# @param options
+#   Custom options to be changed in the SentinelOne Agent configuration
+#
 # @param package_ensure
 #   Ensure the state of the package (default: 'installed').
 #
 # @param package_name
 #   The name of the SentinelOne agent package (default: 'SentinelAgent').
-#
-# @param proxy_url
-#   The URL to use as an HTTP proxy
 #
 # @param service_enable
 #   Decide whether to enable the service (default: true).
@@ -44,16 +44,15 @@ class sentinelone_agent (
   Boolean $manage_logrotate,
   Boolean $manage_package,
   Boolean $manage_service,
+  Optional[Hash] $options,
   Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]] $package_ensure,
   String $package_name,
-  Optional[String] $proxy_url,
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
   String $service_name,
   String $token,
 ) {
+  contain 'sentinelone_agent::config'
   contain 'sentinelone_agent::install'
   contain 'sentinelone_agent::service'
-
-  Class['sentinelone_agent::install'] ~> Class['sentinelone_agent::service']
 }
