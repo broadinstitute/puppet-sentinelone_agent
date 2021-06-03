@@ -7,5 +7,7 @@ fixtures:
       repo: 'puppet/logrotate'
     stdlib:
       repo: 'puppetlabs/stdlib'
+    augeas_core:
+      repo: 'puppetlabs/augeas_core'
   symlinks:
     qualys_agent: "#{source_dir}"
