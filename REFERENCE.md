@@ -7,8 +7,13 @@
 ### Classes
 
 * [`sentinelone_agent`](#sentinelone_agent): Manage an installation of the SentinelOne Agent
+* [`sentinelone_agent::config`](#sentinelone_agentconfig): Manage the SentinelOne Agent configuration
 * [`sentinelone_agent::install`](#sentinelone_agentinstall): Manage the SentinelOne Agent installation
 * [`sentinelone_agent::service`](#sentinelone_agentservice): Manage the SentinelOne Agent service
+
+### Defined types
+
+* [`sentinelone_agent::option`](#sentinelone_agentoption): Control an option in the SentinelOne Agent configuration file
 
 ## Classes
 
@@ -34,6 +39,7 @@ The following parameters are available in the `sentinelone_agent` class:
 * [`manage_logrotate`](#manage_logrotate)
 * [`manage_package`](#manage_package)
 * [`manage_service`](#manage_service)
+* [`options`](#options)
 * [`package_ensure`](#package_ensure)
 * [`package_name`](#package_name)
 * [`service_enable`](#service_enable)
@@ -64,6 +70,12 @@ Decide whether to manage the package (default: true).
 Data type: `Boolean`
 
 Decide whether to manage the service (default: true).
+
+##### <a name="options"></a>`options`
+
+Data type: `Optional[Hash]`
+
+Custom options to be changed in the SentinelOne Agent configuration
 
 ##### <a name="package_ensure"></a>`package_ensure`
 
@@ -101,6 +113,10 @@ Data type: `String`
 
 The token to be used by the SentinelOne agent (no default, but required)
 
+### <a name="sentinelone_agentconfig"></a>`sentinelone_agent::config`
+
+Manage the SentinelOne Agent configuration
+
 ### <a name="sentinelone_agentinstall"></a>`sentinelone_agent::install`
 
 Manage the SentinelOne Agent installation
@@ -108,3 +124,49 @@ Manage the SentinelOne Agent installation
 ### <a name="sentinelone_agentservice"></a>`sentinelone_agent::service`
 
 Manage the SentinelOne Agent service
+
+## Defined types
+
+### <a name="sentinelone_agentoption"></a>`sentinelone_agent::option`
+
+Control an option in the SentinelOne Agent configuration file
+
+#### Examples
+
+#####
+
+```puppet
+sentinelone_agent::option { 'mgmt_proxy_url':
+  value => 'http://example.org:8888',
+}
+```
+
+#####
+
+```puppet
+sentinelone_agent::option { 'some_option_name':
+  setting => 'mgmt_proxy_url'
+  value   => 'http://example.org:8888',
+}
+```
+
+#### Parameters
+
+The following parameters are available in the `sentinelone_agent::option` defined type:
+
+* [`value`](#value)
+* [`setting`](#setting)
+
+##### <a name="value"></a>`value`
+
+Data type: `String`
+
+The value to set for the given option.
+
+##### <a name="setting"></a>`setting`
+
+Data type: `Optional[String]`
+
+Optionally set the option name. If not provided, the resource title will be used.
+
+Default value: ``undef``

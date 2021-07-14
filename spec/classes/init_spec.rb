@@ -25,6 +25,9 @@ describe 'sentinelone_agent' do
             is_expected.to contain_class('sentinelone_agent::install')
           end
           it do
+            is_expected.to contain_class('sentinelone_agent::config')
+          end
+          it do
             is_expected.to contain_class('sentinelone_agent::service')
           end
 
@@ -43,17 +46,12 @@ describe 'sentinelone_agent' do
             )
           end
           it do
-            is_expected.not_to contain_exec('sentinelone_agent_proxy')
+            is_expected.to contain_sentinelone_agent__option('mgmt_site-key').with(value: 'abc123')
           end
           it do
-            is_expected.to contain_exec('sentinelone_agent_token').with(
-              command: '/usr/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cDovL2V4YW1wbGUub3JnIiwgInNpdGVfa2V5IjogImFiYzEyMyJ9',
-              notify: 'Service[sentinelone_agent_service]',
-              require: 'Package[sentinelone_agent_package]',
-              unless: "/usr/bin/sentinelctl management status | /usr/bin/grep -E 'Site\\-Key\\s+abc123'",
-              user: 'root',
-            )
+            is_expected.to contain_sentinelone_agent__option('mgmt_url').with(value: 'http://example.org')
           end
+
           it do
             is_expected.to contain_logrotate__rule('sentinelone_agent').with(
               ensure: 'present',
@@ -117,15 +115,6 @@ describe 'sentinelone_agent' do
               require: nil,
             )
           end
-          it do
-            is_expected.to contain_exec('sentinelone_agent_token').with(
-              command: '/usr/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cDovL2V4YW1wbGUub3JnIiwgInNpdGVfa2V5IjogImFiYzEyMyJ9',
-              notify: 'Service[sentinelone_agent_service]',
-              require: nil,
-              unless: "/usr/bin/sentinelctl management status | /usr/bin/grep -E 'Site\\-Key\\s+abc123'",
-              user: 'root',
-            )
-          end
         end
 
         context 'with manage_service set to false' do
@@ -135,15 +124,6 @@ describe 'sentinelone_agent' do
 
           it do
             is_expected.not_to contain_service('sentinelone_agent_service')
-          end
-          it do
-            is_expected.to contain_exec('sentinelone_agent_token').with(
-              command: '/usr/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cDovL2V4YW1wbGUub3JnIiwgInNpdGVfa2V5IjogImFiYzEyMyJ9',
-              notify: nil,
-              require: 'Package[sentinelone_agent_package]',
-              unless: "/usr/bin/sentinelctl management status | /usr/bin/grep -E 'Site\\-Key\\s+abc123'",
-              user: 'root',
-            )
           end
         end
 
@@ -251,40 +231,44 @@ describe 'sentinelone_agent' do
           end
         end
 
-        context 'with proxy_url set to http://example.com:9999' do
-          let(:params) do
-            { proxy_url: 'http://example.com:9999' }
-          end
-
-          it do
-            is_expected.to compile.with_all_deps
-          end
-
-          it do
-            is_expected.to contain_augeas('sentinelone_agent_proxy').with(
-              changes: "set dict/entry[.= 'mgmt_proxy_url']/string 'http://example.com:9999'",
-              context: '/files/opt/sentinelone/configuration/basic.conf',
-              incl: '/opt/sentinelone/configuration/basic.conf',
-              lens: 'Json.lns',
-              onlyif: "get dict/entry[.= 'mgmt_proxy_url']/string != 'http://example.com:9999'",
-              notify: 'Service[sentinelone_agent_service]',
-            )
-          end
-        end
-
         context 'with token set to new value' do
           let(:params) do
             { token: 'eyJ1cmwiOiAiaHR0cDovL25ldy5leGFtcGxlLm9yZyIsICJzaXRlX2tleSI6ICJ4eXozMjEifQ==' }
           end
 
           it do
-            is_expected.to contain_exec('sentinelone_agent_token').with(
-              command: '/usr/bin/sentinelctl management token set eyJ1cmwiOiAiaHR0cDovL25ldy5leGFtcGxlLm9yZyIsICJzaXRlX2tleSI6ICJ4eXozMjEifQ==',
-              notify: 'Service[sentinelone_agent_service]',
-              require: 'Package[sentinelone_agent_package]',
-              unless: "/usr/bin/sentinelctl management status | /usr/bin/grep -E 'Site\\-Key\\s+xyz321'",
-              user: 'root',
-            )
+            is_expected.to contain_sentinelone_agent__option('mgmt_site-key').with(value: 'xyz321')
+          end
+          it do
+            is_expected.to contain_sentinelone_agent__option('mgmt_url').with(value: 'http://new.example.org')
+          end
+        end
+
+        context 'with option set for mgmt_site-key' do
+          let(:params) do
+            { options: { 'mgmt_site-key': 'abc123' } }
+          end
+
+          it do
+            is_expected.to compile.and_raise_error(%r{option 'mgmt_site-key' cannot be set in options})
+          end
+        end
+        context 'with option set for mgmt_url' do
+          let(:params) do
+            { options: { mgmt_url: 'abc123' } }
+          end
+
+          it do
+            is_expected.to compile.and_raise_error(%r{option 'mgmt_url' cannot be set in options})
+          end
+        end
+        context 'with option set for mgmt_uuid' do
+          let(:params) do
+            { options: { mgmt_uuid: 'abc123' } }
+          end
+
+          it do
+            is_expected.to compile.and_raise_error(%r{option 'mgmt_uuid' cannot be set in options})
           end
         end
       end
