@@ -9,6 +9,25 @@ class sentinelone_agent::config {
   $site_key = $token_pieces['site_key']
   $url = $token_pieces['url']
 
+  file { '/opt/sentinelone/configuration/basic.conf':
+    ensure  => 'file',
+    group   => 'sentinelone',
+    mode    => '0600',
+    owner   => 'sentinelone',
+    require => $sentinelone_agent::install::pkg_req,
+  }
+
+  # SentinelOne manages this config file, but it needs to exist and be valid JSON
+  # before augeas can add provided options. So, we just make sure it is created and
+  # the exec should only run once when the file is empty.
+  exec { 'initialize_basic_conf':
+    command     => "echo '{}' > /opt/sentinelone/configuration/basic.conf",
+    path        => '/bin:/usr/bin:/sbin:/usr/sbin',
+    refreshonly => true,
+    subscribe   => File['/opt/sentinelone/configuration/basic.conf'],
+    unless      => 'test -s /opt/sentinelone/configuration/basic.conf',
+  }
+
   # Set the URL and site-key separately
   sentinelone_agent::option { 'mgmt_site-key':
     value => $site_key,

@@ -38,6 +38,24 @@ describe 'sentinelone_agent' do
             )
           end
           it do
+            is_expected.to contain_file('/opt/sentinelone/configuration/basic.conf').with(
+              ensure: 'file',
+              group: 'sentinelone',
+              mode: '0600',
+              owner: 'sentinelone',
+              require: 'Package[sentinelone_agent_package]',
+            )
+          end
+          it do
+            is_expected.to contain_exec('initialize_basic_conf').with(
+              command: "echo '{}' > /opt/sentinelone/configuration/basic.conf",
+              path: '/bin:/usr/bin:/sbin:/usr/sbin',
+              refreshonly: true,
+              subscribe: 'File[/opt/sentinelone/configuration/basic.conf]',
+              unless: 'test -s /opt/sentinelone/configuration/basic.conf',
+            )
+          end
+          it do
             is_expected.to contain_service('sentinelone_agent_service').with(
               enable: true,
               ensure: 'running',
