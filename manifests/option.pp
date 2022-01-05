@@ -25,12 +25,29 @@ define sentinelone_agent::option (
   $key = pick_default($setting, $title)
 
   # Use Augeas to get around password prompts on option changes
-  augeas { "sentinelone_agent_option_${key}":
+
+  # Used to add new key to the config
+  augeas { "sentinelone_agent_option_add_${key}":
+    changes => [
+      "set dict/entry[last()+1] ${key}",
+      "set dict/entry[.= '${key}']/string '${value}'",
+    ],
+    context => '/files/opt/sentinelone/configuration/basic.conf',
+    incl    => '/opt/sentinelone/configuration/basic.conf',
+    lens    => 'Json.lns',
+    onlyif  => "match dict/entry[.= '${key}'] size == 0",
+    notify  => $sentinelone_agent::service::svc_req,
+    require => File['/opt/sentinelone/configuration/basic.conf'],
+  }
+
+  # Used to update a pre-existing key in the JSON
+  augeas { "sentinelone_agent_option_update_${key}":
     changes => "set dict/entry[.= '${key}']/string '${value}'",
     context => '/files/opt/sentinelone/configuration/basic.conf',
     incl    => '/opt/sentinelone/configuration/basic.conf',
     lens    => 'Json.lns',
     onlyif  => "get dict/entry[.= '${key}']/string != '${value}'",
     notify  => $sentinelone_agent::service::svc_req,
+    require => File['/opt/sentinelone/configuration/basic.conf'],
   }
 }

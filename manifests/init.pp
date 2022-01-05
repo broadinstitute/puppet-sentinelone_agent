@@ -52,7 +52,7 @@ class sentinelone_agent (
   String $service_name,
   String $token,
 ) {
-  contain 'sentinelone_agent::config'
   contain 'sentinelone_agent::install'
+  contain 'sentinelone_agent::config'
   contain 'sentinelone_agent::service'
 }
