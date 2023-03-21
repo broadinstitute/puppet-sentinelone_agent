@@ -21,7 +21,7 @@
 define sentinelone_agent::option (
   String $value,
   Optional[String] $setting = undef,
-){
+) {
   $key = pick_default($setting, $title)
 
   # Use Augeas to get around password prompts on option changes

@@ -2,7 +2,7 @@
 # @summary Manage the SentinelOne Agent configuration
 #
 class sentinelone_agent::config {
-  require ::logrotate
+  require logrotate
 
   # Token is just a base64-encoded string of JSON
   $token_pieces = parsejson(base64('decode', $sentinelone_agent::token))
