@@ -8,28 +8,4 @@ name: 'deploy'
 
 jobs:
   forge_deploy:
-
-    runs-on: 'ubuntu-latest'
-
-    steps:
-      - name: 'Checkout repo'
-        uses: 'actions/checkout@v4'
-
-      - name: 'Set up Ruby'
-        uses: 'ruby/setup-ruby@v1.153.0'
-        env:
-          BUNDLE_SILENCE_ROOT_WARNING: '1'
-          BUNDLE_WITH: 'development'
-        with:
-          bundler-cache: true
-          ruby-version: '3.2'
-          rubygems: 'latest'
-
-      - name: 'Module build'
-        run: 'bundle exec pdk build --force'
-
-      - name: 'Publish package to Puppet Forge'
-        env:
-          BLACKSMITH_FORGE_URL: 'https://forgeapi.puppet.com'
-          BLACKSMITH_FORGE_API_KEY: ${{ secrets.BLACKSMITH_FORGE_API_KEY }}
-        run: 'bundle exec rake module:push'
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-forge-deploy.yml@tex_puppet_deploy

@@ -1,0 +1,16 @@
+---
+name: 'test_deploy'
+
+'on':
+  pull_request:
+    branches:
+      - 'main'
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  test_build:
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-test-deploy.yml@v1.4.1
+    with:
+      puppet_package_name: broadinstitute-sentinelone_agent
