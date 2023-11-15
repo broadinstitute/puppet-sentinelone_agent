@@ -1,12 +1,22 @@
-# Change log
+# Changelog
 
-All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
+## [0.2.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/0.2.0) (2023-11-15)
+
+[Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.3...0.2.0)
+
+**Implemented enhancements:**
+
+- Move to puppet/augeasproviders\_core [\#80](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/80) ([coreone](https://github.com/coreone))
+
+**Fixed bugs:**
+
+- Upgrade dependencies [\#49](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/49) ([teluq-pbrideau](https://github.com/teluq-pbrideau))
 
 ## [0.1.3](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/0.1.3) (2022-01-05)
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.2...0.1.3)
 
-### Fixed
+**Fixed bugs:**
 
 - Fix initial config file state bug [\#25](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/25) ([coreone](https://github.com/coreone))
 
@@ -14,7 +24,7 @@ All notable changes to this project will be documented in this file. The format 
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.1...0.1.2)
 
-### Added
+**Implemented enhancements:**
 
 - Configuration system revamp [\#7](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/7) ([coreone](https://github.com/coreone))
 - Add the ability to configure a proxy [\#6](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/6) ([coreone](https://github.com/coreone))
@@ -23,7 +33,7 @@ All notable changes to this project will be documented in this file. The format 
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.0...0.1.1)
 
-### Fixed
+**Fixed bugs:**
 
 - Fix service name bug [\#4](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/4) ([coreone](https://github.com/coreone))
 
@@ -31,7 +41,7 @@ All notable changes to this project will be documented in this file. The format 
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/7e0f427cd6f07e71541a6771b26a36b53ca37598...0.1.0)
 
-### Added
+**Implemented enhancements:**
 
 - Initial release [\#1](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/1) ([coreone](https://github.com/coreone))
 

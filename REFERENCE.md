@@ -7,13 +7,13 @@
 ### Classes
 
 * [`sentinelone_agent`](#sentinelone_agent): Manage an installation of the SentinelOne Agent
-* [`sentinelone_agent::config`](#sentinelone_agentconfig): Manage the SentinelOne Agent configuration
-* [`sentinelone_agent::install`](#sentinelone_agentinstall): Manage the SentinelOne Agent installation
-* [`sentinelone_agent::service`](#sentinelone_agentservice): Manage the SentinelOne Agent service
+* [`sentinelone_agent::config`](#sentinelone_agent--config): Manage the SentinelOne Agent configuration
+* [`sentinelone_agent::install`](#sentinelone_agent--install): Manage the SentinelOne Agent installation
+* [`sentinelone_agent::service`](#sentinelone_agent--service): Manage the SentinelOne Agent service
 
 ### Defined types
 
-* [`sentinelone_agent::option`](#sentinelone_agentoption): Control an option in the SentinelOne Agent configuration file
+* [`sentinelone_agent::option`](#sentinelone_agent--option): Control an option in the SentinelOne Agent configuration file
 
 ## Classes
 
@@ -35,99 +35,99 @@ class { 'sentinelone_agent':
 
 The following parameters are available in the `sentinelone_agent` class:
 
-* [`logrotate_ensure`](#logrotate_ensure)
-* [`manage_logrotate`](#manage_logrotate)
-* [`manage_package`](#manage_package)
-* [`manage_service`](#manage_service)
-* [`options`](#options)
-* [`package_ensure`](#package_ensure)
-* [`package_name`](#package_name)
-* [`service_enable`](#service_enable)
-* [`service_ensure`](#service_ensure)
-* [`service_name`](#service_name)
-* [`token`](#token)
+* [`logrotate_ensure`](#-sentinelone_agent--logrotate_ensure)
+* [`manage_logrotate`](#-sentinelone_agent--manage_logrotate)
+* [`manage_package`](#-sentinelone_agent--manage_package)
+* [`manage_service`](#-sentinelone_agent--manage_service)
+* [`options`](#-sentinelone_agent--options)
+* [`package_ensure`](#-sentinelone_agent--package_ensure)
+* [`package_name`](#-sentinelone_agent--package_name)
+* [`service_enable`](#-sentinelone_agent--service_enable)
+* [`service_ensure`](#-sentinelone_agent--service_ensure)
+* [`service_name`](#-sentinelone_agent--service_name)
+* [`token`](#-sentinelone_agent--token)
 
-##### <a name="logrotate_ensure"></a>`logrotate_ensure`
+##### <a name="-sentinelone_agent--logrotate_ensure"></a>`logrotate_ensure`
 
 Data type: `Enum['absent', 'present']`
 
 Ensure whether the logrotate file is present or not (default: 'present').
 
-##### <a name="manage_logrotate"></a>`manage_logrotate`
+##### <a name="-sentinelone_agent--manage_logrotate"></a>`manage_logrotate`
 
 Data type: `Boolean`
 
 Decide whether to manage the logrotate configuration for the service (default: true).
 
-##### <a name="manage_package"></a>`manage_package`
+##### <a name="-sentinelone_agent--manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 Decide whether to manage the package (default: true).
 
-##### <a name="manage_service"></a>`manage_service`
+##### <a name="-sentinelone_agent--manage_service"></a>`manage_service`
 
 Data type: `Boolean`
 
 Decide whether to manage the service (default: true).
 
-##### <a name="options"></a>`options`
+##### <a name="-sentinelone_agent--options"></a>`options`
 
 Data type: `Optional[Hash]`
 
 Custom options to be changed in the SentinelOne Agent configuration
 
-##### <a name="package_ensure"></a>`package_ensure`
+##### <a name="-sentinelone_agent--package_ensure"></a>`package_ensure`
 
 Data type: `Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]]`
 
 Ensure the state of the package (default: 'installed').
 
-##### <a name="package_name"></a>`package_name`
+##### <a name="-sentinelone_agent--package_name"></a>`package_name`
 
 Data type: `String`
 
 The name of the SentinelOne agent package (default: 'SentinelAgent').
 
-##### <a name="service_enable"></a>`service_enable`
+##### <a name="-sentinelone_agent--service_enable"></a>`service_enable`
 
 Data type: `Boolean`
 
 Decide whether to enable the service (default: true).
 
-##### <a name="service_ensure"></a>`service_ensure`
+##### <a name="-sentinelone_agent--service_ensure"></a>`service_ensure`
 
 Data type: `Enum['running', 'stopped']`
 
 Ensure the state of the service (default: 'running').
 
-##### <a name="service_name"></a>`service_name`
+##### <a name="-sentinelone_agent--service_name"></a>`service_name`
 
 Data type: `String`
 
 The name of the SentinelOne agent service (default: 'sentinelone').
 
-##### <a name="token"></a>`token`
+##### <a name="-sentinelone_agent--token"></a>`token`
 
 Data type: `String`
 
 The token to be used by the SentinelOne agent (no default, but required)
 
-### <a name="sentinelone_agentconfig"></a>`sentinelone_agent::config`
+### <a name="sentinelone_agent--config"></a>`sentinelone_agent::config`
 
 Manage the SentinelOne Agent configuration
 
-### <a name="sentinelone_agentinstall"></a>`sentinelone_agent::install`
+### <a name="sentinelone_agent--install"></a>`sentinelone_agent::install`
 
 Manage the SentinelOne Agent installation
 
-### <a name="sentinelone_agentservice"></a>`sentinelone_agent::service`
+### <a name="sentinelone_agent--service"></a>`sentinelone_agent::service`
 
 Manage the SentinelOne Agent service
 
 ## Defined types
 
-### <a name="sentinelone_agentoption"></a>`sentinelone_agent::option`
+### <a name="sentinelone_agent--option"></a>`sentinelone_agent::option`
 
 Control an option in the SentinelOne Agent configuration file
 
@@ -154,19 +154,19 @@ sentinelone_agent::option { 'some_option_name':
 
 The following parameters are available in the `sentinelone_agent::option` defined type:
 
-* [`value`](#value)
-* [`setting`](#setting)
+* [`value`](#-sentinelone_agent--option--value)
+* [`setting`](#-sentinelone_agent--option--setting)
 
-##### <a name="value"></a>`value`
+##### <a name="-sentinelone_agent--option--value"></a>`value`
 
 Data type: `String`
 
 The value to set for the given option.
 
-##### <a name="setting"></a>`setting`
+##### <a name="-sentinelone_agent--option--setting"></a>`setting`
 
 Data type: `Optional[String]`
 
 Optionally set the option name. If not provided, the resource title will be used.
 
-Default value: ``undef``
+Default value: `undef`
