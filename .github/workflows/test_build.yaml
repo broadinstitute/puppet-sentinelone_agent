@@ -11,6 +11,6 @@ name: 'test_deploy'
 
 jobs:
   test_build:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-test-deploy.yml@v1.4.2
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-build.yaml@v2.0.0
     with:
       puppet_package_name: broadinstitute-sentinelone_agent

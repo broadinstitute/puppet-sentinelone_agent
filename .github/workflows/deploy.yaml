@@ -10,4 +10,4 @@ jobs:
   forge_deploy:
     secrets:
       forge_token: ${{ secrets.BLACKSMITH_FORGE_API_KEY }}
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-forge-deploy.yml@v1.4.2
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-forge-deploy.yaml@v2.0.0
