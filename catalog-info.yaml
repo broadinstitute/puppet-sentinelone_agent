@@ -14,8 +14,8 @@ metadata:
     github.com/project-slug: broadinstitute/puppet-sentinelone_agent
     backstage.io/techdocs-ref: dir:.
 spec:
-  type: service
-  owner: bits-aviso
-  lifecycle: production
-  system: puppet
   domain: infrastructure-tools
+  lifecycle: production
+  owner: bits-aviso
+  system: puppet
+  type: service
