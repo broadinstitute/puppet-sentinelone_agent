@@ -1,0 +1,21 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: puppet-sentinelone_agent
+  title: puppet-sentinelone_agent
+  description: "Puppet module to manage the SentinelOne agent"
+  tags:
+    - bits
+    - bits-tools
+    - puppet
+    - sentinelone
+  annotations:
+    github.com/project-slug: broadinstitute/puppet-sentinelone_agent
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: bits-aviso
+  lifecycle: production
+  system: puppet
+  domain: infrastructure-tools
