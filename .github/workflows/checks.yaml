@@ -8,6 +8,6 @@ name: 'checks'
 
 jobs:
   static-analysis:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-lint.yaml@v2.3.0
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-lint.yaml@v2.5.0
   unit-tests:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-unit-test.yaml@v2.3.0
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-unit-test.yaml@v2.5.0
