@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/1.0.0) (2025-02-11)
+
+[Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.2.0...1.0.0)
+
+**Implemented enhancements:**
+
+- feat!: Update supported OS versions [\#103](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/103) ([coreone](https://github.com/coreone))
+- Update for stdlib 9 [\#95](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/95) ([teluq-pbrideau](https://github.com/teluq-pbrideau))
+
 ## [0.2.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/0.2.0) (2023-11-15)
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.1.3...0.2.0)
