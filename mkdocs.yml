@@ -1,0 +1,8 @@
+---
+site_name: 'Puppet sentinelone_agent module'
+
+nav:
+  - Home: README.md
+
+plugins:
+  - techdocs-core
