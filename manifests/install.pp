@@ -7,6 +7,7 @@ class sentinelone_agent::install {
     package { 'sentinelone_agent_package':
       ensure => $sentinelone_agent::package_ensure,
       name   => $sentinelone_agent::package_name,
+      install_options => $sentinelone_agent::package_install_options,
     }
   } else {
     $pkg_req = undef
