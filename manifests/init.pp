@@ -27,6 +27,9 @@
 # @param package_name
 #   The name of the SentinelOne agent package (default: 'SentinelAgent').
 #
+# @param package_install_options
+#   Optional install arguments for the SentinelOne agent package
+#
 # @param service_enable
 #   Decide whether to enable the service (default: true).
 #
@@ -46,6 +49,7 @@ class sentinelone_agent (
   Boolean $manage_service,
   Optional[Hash] $options,
   Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]] $package_ensure,
+  Optional[Array[Variant[String, Hash[String, String]]]] $package_install_options,
   String $package_name,
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
