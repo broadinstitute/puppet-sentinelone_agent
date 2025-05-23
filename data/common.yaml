@@ -6,6 +6,7 @@ sentinelone_agent::manage_service: true
 sentinelone_agent::options: ~
 sentinelone_agent::package_ensure: 'installed'
 sentinelone_agent::package_name: 'SentinelAgent'
+sentinelone_agent::package_install_options: ~
 sentinelone_agent::service_enable: true
 sentinelone_agent::service_ensure: 'running'
 sentinelone_agent::service_name: 'sentinelone'
