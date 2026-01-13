@@ -6,14 +6,19 @@
 
 ### Classes
 
-* [`sentinelone_agent`](#sentinelone_agent): Manage an installation of the SentinelOne Agent
-* [`sentinelone_agent::config`](#sentinelone_agent--config): Manage the SentinelOne Agent configuration
-* [`sentinelone_agent::install`](#sentinelone_agent--install): Manage the SentinelOne Agent installation
-* [`sentinelone_agent::service`](#sentinelone_agent--service): Manage the SentinelOne Agent service
+- [`sentinelone_agent`](#sentinelone_agent): Manage an installation of the
+  SentinelOne Agent
+- [`sentinelone_agent::config`](#sentinelone_agent--config): Manage the
+  SentinelOne Agent configuration
+- [`sentinelone_agent::install`](#sentinelone_agent--install): Manage the
+  SentinelOne Agent installation
+- [`sentinelone_agent::service`](#sentinelone_agent--service): Manage the
+  SentinelOne Agent service
 
 ### Defined types
 
-* [`sentinelone_agent::option`](#sentinelone_agent--option): Control an option in the SentinelOne Agent configuration file
+- [`sentinelone_agent::option`](#sentinelone_agent--option): Control an option
+  in the SentinelOne Agent configuration file
 
 ## Classes
 
@@ -35,17 +40,18 @@ class { 'sentinelone_agent':
 
 The following parameters are available in the `sentinelone_agent` class:
 
-* [`logrotate_ensure`](#-sentinelone_agent--logrotate_ensure)
-* [`manage_logrotate`](#-sentinelone_agent--manage_logrotate)
-* [`manage_package`](#-sentinelone_agent--manage_package)
-* [`manage_service`](#-sentinelone_agent--manage_service)
-* [`options`](#-sentinelone_agent--options)
-* [`package_ensure`](#-sentinelone_agent--package_ensure)
-* [`package_name`](#-sentinelone_agent--package_name)
-* [`service_enable`](#-sentinelone_agent--service_enable)
-* [`service_ensure`](#-sentinelone_agent--service_ensure)
-* [`service_name`](#-sentinelone_agent--service_name)
-* [`token`](#-sentinelone_agent--token)
+- [`logrotate_ensure`](#-sentinelone_agent--logrotate_ensure)
+- [`manage_logrotate`](#-sentinelone_agent--manage_logrotate)
+- [`manage_package`](#-sentinelone_agent--manage_package)
+- [`manage_service`](#-sentinelone_agent--manage_service)
+- [`options`](#-sentinelone_agent--options)
+- [`package_ensure`](#-sentinelone_agent--package_ensure)
+- [`package_name`](#-sentinelone_agent--package_name)
+- [`package_install_options`](#-sentinelone_agent--package_install_options)
+- [`service_enable`](#-sentinelone_agent--service_enable)
+- [`service_ensure`](#-sentinelone_agent--service_ensure)
+- [`service_name`](#-sentinelone_agent--service_name)
+- [`token`](#-sentinelone_agent--token)
 
 ##### <a name="-sentinelone_agent--logrotate_ensure"></a>`logrotate_ensure`
 
@@ -57,7 +63,8 @@ Ensure whether the logrotate file is present or not (default: 'present').
 
 Data type: `Boolean`
 
-Decide whether to manage the logrotate configuration for the service (default: true).
+Decide whether to manage the logrotate configuration for the service (default:
+true).
 
 ##### <a name="-sentinelone_agent--manage_package"></a>`manage_package`
 
@@ -79,7 +86,8 @@ Custom options to be changed in the SentinelOne Agent configuration
 
 ##### <a name="-sentinelone_agent--package_ensure"></a>`package_ensure`
 
-Data type: `Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]]`
+Data type:
+`Variant[Enum['absent', 'installed', 'latest'], Pattern[/^(\d+\.){3}\d+$/]]`
 
 Ensure the state of the package (default: 'installed').
 
@@ -88,6 +96,12 @@ Ensure the state of the package (default: 'installed').
 Data type: `String`
 
 The name of the SentinelOne agent package (default: 'SentinelAgent').
+
+##### <a name="-sentinelone_agent--package_install_options"></a>`package_install_options`
+
+Data type: `Optional[Array[Variant[String, Hash[String, String]]]]`
+
+Optional install arguments for the SentinelOne agent package
 
 ##### <a name="-sentinelone_agent--service_enable"></a>`service_enable`
 
@@ -152,10 +166,11 @@ sentinelone_agent::option { 'some_option_name':
 
 #### Parameters
 
-The following parameters are available in the `sentinelone_agent::option` defined type:
+The following parameters are available in the `sentinelone_agent::option`
+defined type:
 
-* [`value`](#-sentinelone_agent--option--value)
-* [`setting`](#-sentinelone_agent--option--setting)
+- [`value`](#-sentinelone_agent--option--value)
+- [`setting`](#-sentinelone_agent--option--setting)
 
 ##### <a name="-sentinelone_agent--option--value"></a>`value`
 
@@ -167,6 +182,7 @@ The value to set for the given option.
 
 Data type: `Optional[String]`
 
-Optionally set the option name. If not provided, the resource title will be used.
+Optionally set the option name. If not provided, the resource title will be
+used.
 
 Default value: `undef`
