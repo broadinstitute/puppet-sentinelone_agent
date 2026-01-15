@@ -4,12 +4,12 @@
 fixtures:
   forge_modules:
     augeas_core:
-      repo: 'puppetlabs/augeas_core'
+      repo: puppetlabs/augeas_core
     logrotate:
-      repo: 'puppet/logrotate'
+      repo: puppet/logrotate
     stdlib:
-      repo: 'puppetlabs/stdlib'
+      repo: puppetlabs/stdlib
     systemd:
-      repo: 'puppet/systemd'
+      repo: puppet/systemd
   symlinks:
     sentinelone_agent: "#{source_dir}"

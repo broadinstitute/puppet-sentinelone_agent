@@ -1,5 +1,5 @@
 ---
-site_name: 'Puppet sentinelone_agent module'
+site_name: Puppet sentinelone_agent module
 
 nav:
   - Home: README.md
