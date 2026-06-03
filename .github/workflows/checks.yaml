@@ -11,6 +11,6 @@ permissions:
 
 jobs:
   static-analysis:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-lint.yaml@v6.0.0
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-lint.yaml@v6.2.0
   unit-tests:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-unit-test.yaml@v6.0.0
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-unit-test.yaml@v6.2.0
