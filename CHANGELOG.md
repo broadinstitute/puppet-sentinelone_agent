@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/1.1.0) (2026-10-30)
+
+[Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/1.0.0...1.1.0)
+
+**Implemented enhancements:**
+
+- Update logrotate dependency
+  [\#116](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/116)
+  ([teluq-pbrideau](https://github.com/teluq-pbrideau))
+- feat: add install options for sentinelone agent package
+  [\#107](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/107)
+  ([ryefig](https://github.com/ryefig))
+
 ## [1.0.0](https://github.com/broadinstitute/puppet-sentinelone_agent/tree/1.0.0) (2025-02-11)
 
 [Full Changelog](https://github.com/broadinstitute/puppet-sentinelone_agent/compare/0.2.0...1.0.0)
@@ -19,7 +32,7 @@
 
 **Implemented enhancements:**
 
-- Move to puppet/augeasproviders_core
+- Move to puppet/augeasproviders\_core
   [\#80](https://github.com/broadinstitute/puppet-sentinelone_agent/pull/80)
   ([coreone](https://github.com/coreone))
 
