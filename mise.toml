@@ -12,5 +12,8 @@ depends = ["bundle:config", "bundle:install"]
 description = "Run a Puppet Strings generation"
 run = "bundle exec puppet strings generate --format markdown; prettier -w REFERENCE.md"
 
-# [tools]
+[tools]
+node = "latest"
+prek = "latest"
+prettier = "latest"
 # ruby = "3.3.10"
