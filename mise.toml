@@ -16,4 +16,4 @@ run = "bundle exec puppet strings generate --format markdown; prettier -w REFERE
 node = "latest"
 prek = "latest"
 prettier = "latest"
-# ruby = "3.3.10"
+ruby = "3.2.10"
